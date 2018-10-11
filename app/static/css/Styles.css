@@ -265,14 +265,15 @@ table{
     font-family: serif;
     font-weight:normal;
     font-size: 14px;
+    width: 90%;
     text-align: justify;
 }
-#food_items img{
-  width: 130px;
-  height: 130px;
-  border-radius: 4em;
-  margin: 1%;
-  float: left;
+#food_items p span{
+  color: blue;
+  font-size: 18px;
+}
+._adm{
+  display: none;
 }
 #error{
   color: #f442a7;

@@ -21,6 +21,8 @@ signUp = () => {
   }).then(function(data){
     let msg = data.Message;
     if(msg === username + " registered successfully"){
+      access_token = data.access_token
+      localStorage.setItem('token', access_token);
       document.getElementById('error').innerHTML = msg;
       setTimeout(() => {document.getElementById("error").innerHTML = "";}, 4000);
       window.location.href = "/login";
