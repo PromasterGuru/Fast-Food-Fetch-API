@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+      <section>
+        <div id="admin-dashboard">
+          <div class="admin-dashboard">
+            <a href="{{url_for('menu')}}">
+              <div id="div_img"><img src="{{url_for('static', filename = 'img/item.jpg')}}" alt = "Item image"></div>
+              <div id="div_desc">
+                <h2>Menu Options</h2>
+                <h4>58</h4>
+              </div>
+            </a>
+            <a href="{{url_for('orders')}}">
+              <div id="div_img"><img src="{{url_for('static', filename = 'img/order.jpeg')}}" alt = "Item image')}}"></div>
+                <div id="div_desc">
+                  <h2>Orders</h2>
+                  <h4>4</h4>
+                </div>
+              </a>
+          </div>
+        </div>
+        <h2 style="text-align:center; color:#ffffff; margin:10px;">Place Order</h2>
+          <form action="#" method="post">
+          <table>
+            <tr><td>Order ID</td><td><input type="text" name="orderid"> </td></tr>
+            <tr><td>Meal Option</td><td><input type="text" name="meal_name"></td></tr>
+            <tr><td></td><td><input type="hidden" name="meal_id"></td></tr>
+            <tr><td>Address</td><td><input type="text" name="address"></td></tr>
+            <tr><td>Quantity</td><td><input type="text" name="quantity"></td></tr>
+            <tr><td colspan="2"><input type="submit" value="Order Now" id="submit"> </td></tr>
+          </table>
+          </form>
+        <section>
+{% endblock %}

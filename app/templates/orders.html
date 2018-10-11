@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+      <section>
+        <div id="admin-dashboard">
+          <div class="admin-dashboard">
+            <a href="{{url_for('menu')}}">
+              <div id="div_img"><img src="{{url_for('static', filename = 'img/item.jpg')}}" alt = "Item image"></div>
+              <div id="div_desc">
+                <h2>Menu Options</h2>
+                <h4>58</h4>
+              </div>
+            </a>
+            <a href="{{url_for('orders')}}">
+              <div id="div_img"><img src="{{url_for('static', filename = 'img/order.jpeg')}}" alt = "Item image')}}"></div>
+                <div id="div_desc">
+                  <h2>Orders</h2>
+                  <h4>4</h4>
+                </div>
+              </a>
+          </div>
+        </div>
+        <h2 style="text-align:center; color:#ffffff; margin:10px;">Food Orders</h2>
+        <div id="food_items">
+              <p>
+                User Email: <b>pmutondo12@gmail.com</b><br>
+                Food name: <b>Tater tots</b><br>
+                Quantity : <b>4</b><br>
+                Subtotal: <b>$98.20</b><br>
+                Date: <b>2018/08/31 02:31AM</b>
+                <br><br>
+                <a href="#">Accept</a>&nbsp;&nbsp;&nbsp;
+                <a href="#">Decline</a>&nbsp;&nbsp;&nbsp;
+                <a href="#">Mark as Completed</a>
+              </p>
+        </div>
+        <div id="food_items">
+              <p>
+                User Email: <b>pmutondo12@gmail.com</b><br>
+                Food name: <b>Cobb salad</b><br>
+                Quantity : <b>2</b><br>
+                Subtotal: <b>$29.10</b><br>
+                Date: <b>2018/08/31 02:33AM</b>
+                <br><br>
+                <a href="#">Accept</a>&nbsp;&nbsp;&nbsp;
+                <a href="#">Decline</a>&nbsp;&nbsp;&nbsp;
+                <a href="#">Mark as Completed</a>
+              </p>
+        </div>
+        <section>
+{% endblock %}

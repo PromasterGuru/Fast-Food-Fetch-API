@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if title %}
+    <title>Fast Food Fast - {{title}}</title>
+    {% else %}
+    <title> Fast Food Fast</title>
+    {% endif %}
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/Styles.css') }}">
+</head>
+<body>
+    <p id="acc-title">Register for a new account</p>
+    <form action="#" method="post">
+        <input type="text" placeholder="Enter your username" required class="input">
+        <input type="email" placeholder="Enter your email " required class="input">
+        <input type="password" placeholder="Enter your password" required class="input">
+        <input type="password" placeholder="Confirm your password" required class="input">
+        <input type="submit" value="SignUP" id="submit">
+        <span id="error"></span>
+    </form>
+</body>
+</html>

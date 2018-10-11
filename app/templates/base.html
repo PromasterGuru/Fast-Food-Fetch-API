@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Paul Mathenge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if title %}
+    <title>Fast Food Fast - {{title}}</title>
+  {% else %}
+    <title> Fast Food Fast</title>
+  {% endif %}
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/Styles.css') }}">
+</head>
+<body>
+  <div id="container">
+      <nav>
+          <p>Fast food Fast</p>
+          <a href="{{url_for('menu')}}">Menu</a>
+          <a href="{{url_for('order')}}">Place Order</a>
+          <a href="{{url_for('orders')}}">Order History</a>
+          <a href="{{url_for('logout')}}" style="text-align: right;">Logout</a>
+      </nav>
+  {% block content %}
+
+  {% endblock %}
+      <div id="footer">&copy2018 by Fast-Food-Fast restaurants</div>
+  </div>
+</body>
+</html>

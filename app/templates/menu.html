@@ -1,0 +1,39 @@
+
+{% extends "base.html" %}
+{% block content %}
+      <section>
+        <div id="admin-dashboard">
+          <div class="admin-dashboard">
+            <a href="{{url_for('menu')}}">
+              <div id="div_img"><img src="{{url_for('static', filename = 'img/item.jpg')}}" alt = "Item image"></div>
+              <div id="div_desc">
+                <h2>Menu Options</h2>
+                <h4>58</h4>
+              </div>
+            </a>
+            <a href="{{url_for('orders')}}">
+              <div id="div_img"><img src="{{url_for('static', filename = 'img/order.jpeg')}}" alt = "Item image')}}"></div>
+                <div id="div_desc">
+                  <h2>Orders</h2>
+                  <h4>4</h4>
+                </div>
+              </a>
+          </div>
+        </div>
+        <div id="food_items">
+              <p><b>Tater tots:</b> These are Pieces of deep-fried, grated potatoes served as a side dish.
+                    They are recognized by their compact cylindrical shape and crispy colored exterio.
+                    Each costs <b>$24.55</b>.<br><br>
+                    <a href="{{url_for('order')}}">Order Now</a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="{{url_for('order')}}">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Delete</a>
+                  </p>
+        </div>
+        <div id="food_items">
+              <p><b>Cobb salad:</b> The main-dish African garden salad typically made with chopped salad greens,
+              tomato, crisp bacon, boiled, grilled or roasted chicken breast, hard-boiled eggs, avocado, chives,
+              Roquefort cheese, and red-wine vinaigrette.
+              Each costs <b>$14.55</b>.<br><br>
+              <a href="{{url_for('order')}}">Order Now</a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="{{url_for('order')}}">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Delete</a>
+              </p>
+        </div>
+        <section>
+{% endblock %}

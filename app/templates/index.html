@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Paul Mathenge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if title %}
+    <title>Fast Food Fast - {{title}}</title>
+    {% else %}
+    <title> Fast Food Fast</title>
+    {% endif %}
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/Styles.css') }}">
+<body>
+  <div id="container">
+      <nav>
+          <p>Fast food Fast</p>
+          <a href="{{url_for('login')}}">Login</a>
+          <a href="{{url_for('signup')}}">Register?</a>
+      </nav>
+      <div id="banner">
+        <h2>Shop from a wide range of hot dishes</h2>
+        <img src="{{url_for('static', filename = 'img/food.jpeg')}}" alt="Food image" height="350px" width="100%">
+      </div>
+      <section>
+        <p>Your wish is our command. Login and make any order above $50 to get free delivery to your door.</p>
+        </p>
+        <div class="food-item">
+          <figure>
+          <img src="{{url_for('static', filename = 'img/food1.jpeg')}}" alt="Food image">
+          <figcaption>Tater tots</figcaption>
+        </figure>
+        </div>
+        <div class="food-item">
+          <figure>
+          <img src="{{url_for('static', filename = 'img/food2.jpeg')}}" alt="Food image">
+          <figcaption>Cobb salad</figcaption>
+        </figure>
+        </div>
+        <div class="food-item">
+          <figure>
+          <img src="{{url_for('static', filename = 'img/food3.jpeg')}}" alt="Food image">
+          <figcaption>Twinkies</figcaption>
+        </figure>
+      </div>
+      <div class="food-item">
+        <figure>
+        <img src="{{url_for('static', filename = 'img/food4.jpeg')}}" alt="Food image">
+        <figcaption>Fajita</figcaption>
+        </figure>
+      </div>
+        <section>
+      <div id="footer">&copy2018 by Fast-Food-Fast restaurants</div>
+  </div>
+</body>
