@@ -1,7 +1,7 @@
 // View order History
 const access_token = localStorage.getItem("token");
 var proxyUrl = 'https://morning-springs-84037.herokuapp.com/'
-//Menu Url
+//Orders Url
 const url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/";
 fetch(proxyUrl + url, {
     method: "GET",
