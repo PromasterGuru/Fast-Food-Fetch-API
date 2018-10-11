@@ -11,7 +11,7 @@ signUp = () => {
   const url = 'https://pro-fast-food-fast-api.herokuapp.com/api/v2/auth/signup';
   // submit registration data data to the server
   fetch(proxyUrl  + url, {
-    method: 'post',
+    method: 'POST',
     body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json"
@@ -45,7 +45,7 @@ login = () => {
   const url = 'https://pro-fast-food-fast-api.herokuapp.com/api/v2/auth/login';
   // submit registration data data to the server
   fetch(proxyUrl  + url, {
-    method: 'post',
+    method: 'POST',
     body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json"

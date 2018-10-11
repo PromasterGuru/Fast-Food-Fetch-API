@@ -12,7 +12,7 @@ placeOrder = () => {
   //Orders Url
   const url = 'https://pro-fast-food-fast-api.herokuapp.com/api/v2/users/orders';
   fetch(proxyUrl + url, {
-    method: 'post',
+    method: 'POST',
     body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json",
