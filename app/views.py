@@ -1,5 +1,8 @@
-from flask import render_template,redirect
+from flask import render_template
+from flask_cors import CORS
 from app import app
+
+CORS(app)
 
 @app.route('/')
 def landing():

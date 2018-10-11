@@ -13,13 +13,14 @@
 </head>
 <body>
     <p id="acc-title">Register for a new account</p>
-    <form action="#" method="post">
-        <input type="text" placeholder="Enter your username" required class="input">
-        <input type="email" placeholder="Enter your email " required class="input">
-        <input type="password" placeholder="Enter your password" required class="input">
-        <input type="password" placeholder="Confirm your password" required class="input">
-        <input type="submit" value="SignUP" id="submit">
+    <form onsubmit="event.preventDefault();" id='signup'>
+        <input type="text" placeholder="Enter your username" required class="input" id="uname">
+        <input type="email" placeholder="Enter your email " required class="input" id="email">
+        <input type="password" placeholder="Enter your password" required class="input" id="pass">
+        <input type="password" placeholder="Confirm your password" required class="input" id="cpass">
+        <button id="submit" onclick="signUp()">SignUP</button>
         <span id="error"></span>
     </form>
 </body>
+<script type="text/javascript" src="{{ url_for('static', filename='js/auth.js') }}"></script>
 </html>
