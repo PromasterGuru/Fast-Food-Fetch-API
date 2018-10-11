@@ -31,3 +31,7 @@ def orders():
 @app.route('/logout')
 def logout():
     return render_template('index.html',title ="Welcome")
+
+@app.route('/specific-order/<int:orderId>')
+def specific_order(orderId):
+    return render_template('order.html',title ="Place Order",var1=orderId)
