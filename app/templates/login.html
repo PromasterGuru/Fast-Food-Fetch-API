@@ -9,12 +9,13 @@
 </head>
 <body>
     <p id="acc-title">Login to your account</p>
-    <form action="#" method="post">
-      <input type="email" placeholder="Enter your username or email" required class="input">
-      <input type="password" placeholder="Enter your password" required class="input">
-      <input type="submit" value="Login" id="submit">
+    <form onsubmit="event.preventDefault();" id='login'>
+      <input type="text" placeholder="Enter your username" required class="input" id="username">
+      <input type="password" placeholder="Enter your password" required class="input" id="password">
+      <button id="submit" onclick="login()">Login</button>
       <a href="{{url_for('signup')}}" id="register">SignUP</a>
       <span id="error"></span>
     </form>
 </body>
+<script type="text/javascript" src="{{ url_for('static', filename='js/auth.js') }}"></script>
 </html>
