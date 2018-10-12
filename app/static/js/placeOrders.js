@@ -1,16 +1,21 @@
 // Place order
 placeOrder = () => {
-  const access_token = localStorage.getItem("token");
+
   let data = {
     meal_id: document.getElementById('meal_id').value,
     address: document.getElementById('address').value,
     quantity: document.getElementById('quantity').value
   };
 
-  //CORS proxy url
-  var proxyUrl = 'https://morning-springs-84037.herokuapp.com/';
   //Orders Url
-  const url = 'https://pro-fast-food-fast-api.herokuapp.com/api/v2/users/orders';
+  let url = 'https://pro-fast-food-fast-api.herokuapp.com/api/v2/users/orders';
+  alert(role)
+  if(role === 'Admin'){
+    if(document.getElementById('order_id').value){
+      id = document.getElementById('order_id').value;
+      url = `https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/${id}`;
+    }
+  }
   fetch(proxyUrl + url, {
     method: 'POST',
     body: JSON.stringify(data),

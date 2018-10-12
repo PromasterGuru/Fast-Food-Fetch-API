@@ -1,5 +1,3 @@
-const access_token = localStorage.getItem("token");
-var proxyUrl = 'https://morning-springs-84037.herokuapp.com/'
 //Menu Url
 const url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/menu";
 fetch(proxyUrl + url)
@@ -19,8 +17,8 @@ fetch(proxyUrl + url)
       Unit Price: $<span>${items[index].unit_price}</span><br></br>
       <span>
       <a href="/specific-order/${items[index].meal_id}">Order Now</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#" class="_adm">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#" class="_adm">Delete</a><span>
+      <a href="#" id="_adm">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="#" id="_adm">Delete</a><span>
       </p>
     </div>`;
   }

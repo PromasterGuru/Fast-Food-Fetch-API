@@ -1,6 +1,8 @@
+var proxyUrl = 'https://morning-springs-84037.herokuapp.com/'
+
 //Register a new user
 signUp = () => {
-  var proxyUrl = 'https://morning-springs-84037.herokuapp.com/';
+
   let data = {
     username: document.getElementById("uname").value,
     email: document.getElementById("email").value,
@@ -36,7 +38,7 @@ signUp = () => {
 
 //User login
 login = () => {
-  var proxyUrl = 'https://morning-springs-84037.herokuapp.com/';
+
   let data = {
     username: document.getElementById("username").value,
     password: document.getElementById("password").value
@@ -57,6 +59,7 @@ login = () => {
     if(msg === "Login successful, Welcome " + username){
       access_token = data.access_token
       localStorage.setItem('token', access_token);
+      localStorage.setItem('user', username);
       document.getElementById('error').innerHTML = msg;
       setTimeout(() => {document.getElementById("error").innerHTML = "";}, 4000);
       window.location.href = "/menu";
