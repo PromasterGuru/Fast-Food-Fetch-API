@@ -2,7 +2,7 @@
 let url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/users/orders";
 
 if(role === 'Admin'){
-  let url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/";
+  url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/";
 }
 fetch(proxyUrl + url, {
     method: "GET",
