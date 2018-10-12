@@ -13,13 +13,11 @@
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/Styles.css') }}">
 </head>
 <body>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/securePage.js') }}"></script>
   <div id="container">
       <nav>
           <p>Fast food Fast</p>
-          <a href="{{url_for('logout')}}">Logout</a>
-          <a href="{{url_for('orders')}}">Order History</a>
-          <a href="{{url_for('order')}}">Place Order</a>
-          <a href="{{url_for('menu')}}">Menu</a>
+          <a href="{{url_for('logout')}}"  onclick="localStorage.clear()">Logout</a>
       </nav>
   {% block content %}
 

@@ -29,7 +29,7 @@ fetch(proxyUrl + url, {
           Address: <span>${result[i].address}</span><br>
           Status: <span>${result[i].status}</span>
           <br><br>
-          <span>
+          <span class="_adm">
           <button onclick=(updateOrder("${result[i].order_id}","Processing"))>Process</button>&nbsp;&nbsp;&nbsp;
           <button onclick=(updateOrder("${result[i].order_id}","Cancelled"))>Cancel</button>&nbsp;&nbsp;&nbsp;
           <button onclick=(updateOrder("${result[i].order_id}","Complete"))>Mark as Completed</button>&nbsp;&nbsp;&nbsp;
