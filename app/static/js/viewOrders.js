@@ -1,8 +1,9 @@
-// View order History
-const access_token = localStorage.getItem("token");
-var proxyUrl = 'https://morning-springs-84037.herokuapp.com/'
 //Orders Url
-const url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/";
+let url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/users/orders";
+
+if(role === 'Admin'){
+  let url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/";
+}
 fetch(proxyUrl + url, {
     method: "GET",
     headers: {
@@ -15,29 +16,39 @@ fetch(proxyUrl + url, {
   })
   .then(function(data){
     let result = data.Message
-    document.getElementById('orders_count').innerHTML = result.length;
-    // Loop through each order and display it on the screen
-    for(i = 0; i < result.length; i++){
+    // When no order is found
+    if(result === "No order history found."){
+      document.getElementById('orders_count').innerHTML = 0;
       document.getElementById('orders').innerHTML += `
       <div id="food_items">
-        <p>
-          User ID: <span>${result[i].user_id}</span><br>
-          Order ID: <span>${result[i].order_id}</span><br>
-          Meal ID: <span>${result[i].meal_id}</span><br>
-          Quantity: <span>${result[i].quantity}</span><br>
-          Order Date: <span>${result[i].order_date}</span><br>
-          Address: <span>${result[i].address}</span><br>
-          Status: <span>${result[i].status}</span>
-          <br><br>
-          <span class="_adm">
-          <button onclick=(updateOrder("${result[i].order_id}","Processing"))>Process</button>&nbsp;&nbsp;&nbsp;
-          <button onclick=(updateOrder("${result[i].order_id}","Cancelled"))>Cancel</button>&nbsp;&nbsp;&nbsp;
-          <button onclick=(updateOrder("${result[i].order_id}","Complete"))>Mark as Completed</button>&nbsp;&nbsp;&nbsp;
-          <button onclick=(deleteOrder("${result[i].order_id}"))>Delete Order</button>
-          </span>
-          </p>
-          <span id="${result[i].order_id}" class="msg"></span>
-      </div>`;
+        <p><span id="error">We can't find any order history, place a new order!</span></p>
+        </div>`;
+    }
+    else{
+      document.getElementById('orders_count').innerHTML = result.length;
+      // Loop through each order and display it on the screen
+      for(i = 0; i < result.length; i++){
+        document.getElementById('orders').innerHTML += `
+        <div id="food_items">
+          <p>
+            User ID: <span>${result[i].user_id}</span><br>
+            Order ID: <span>${result[i].order_id}</span><br>
+            Meal ID: <span>${result[i].meal_id}</span><br>
+            Quantity: <span>${result[i].quantity}</span><br>
+            Order Date: <span>${result[i].order_date}</span><br>
+            Address: <span>${result[i].address}</span><br>
+            Status: <span>${result[i].status}</span>
+            <br><br>
+            <span id="_adm">
+            <button onclick=(updateOrder("${result[i].order_id}","Processing"))>Process</button>&nbsp;&nbsp;&nbsp;
+            <button onclick=(updateOrder("${result[i].order_id}","Cancelled"))>Cancel</button>&nbsp;&nbsp;&nbsp;
+            <button onclick=(updateOrder("${result[i].order_id}","Complete"))>Mark as Completed</button>&nbsp;&nbsp;&nbsp;
+            <button onclick=(deleteOrder("${result[i].order_id}"))>Delete Order</button>
+            </span>
+            </p>
+            <span id="${result[i].order_id}" class="msg"></span>
+        </div>`;
+      }
     }
   })
   .catch(error => console.log(error));
@@ -45,8 +56,7 @@ fetch(proxyUrl + url, {
 /******************************************************/
 //UPdate the status of an order
 updateOrder = (id, order_status) => {
-    const access_token = localStorage.getItem("token");
-    var proxyUrl = 'https://morning-springs-84037.herokuapp.com/'
+
     //Menu Url
     const url = `https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/${id}`;
     //data
@@ -83,8 +93,7 @@ updateOrder = (id, order_status) => {
 /******************************************************/
 //Delete an order
 deleteOrder = (id) => {
-  const access_token = localStorage.getItem("token");
-  var proxyUrl = 'https://morning-springs-84037.herokuapp.com/'
+
   //Order Url
   const url = `https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/${id}`;
   fetch(proxyUrl + url,{

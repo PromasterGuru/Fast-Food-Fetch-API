@@ -21,11 +21,10 @@
         <h2 style="text-align:center; color:#ffffff; margin:10px;">Place Order</h2>
           <form onsubmit="event.preventDefault();">
           <table>
-            <tr class="_adm"><td>Order ID</td><td><input type="text" id="orderid"> </td></tr>
+            <tr id="_adm"><td>Order ID</td><td><input type="text" id="order_id"> </td></tr>
             <tr><td>Meal Option</td><td><input type="text" value="{{var1}}" id="meal_id" readonly></td></tr>
             <tr><td>User Address</td><td><input type="text" id="address" required></td></tr>
             <tr><td>Quantity</td><td><input type="text" id="quantity" required></td></tr>
-            <tr class="_adm"><td>Status</td><td><input type="text" id="status"></td></tr>
             <tr><td colspan="2"><button id="submit" onclick="placeOrder();">Submit Order</button></td></tr>
             <tr><td colspan="2"><span id="error"></span>
           </table>

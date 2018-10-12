@@ -11,13 +11,15 @@
     <title> Fast Food Fast</title>
   {% endif %}
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/Styles.css') }}">
+  <script type="text/javascript" src="{{ url_for('static', filename='js/sucurePages.js') }}"></script>
 </head>
 <body>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/securePage.js') }}"></script>
+  
   <div id="container">
       <nav>
           <p>Fast food Fast</p>
           <a href="{{url_for('logout')}}"  onclick="localStorage.clear()">Logout</a>
+          <a href=""><button>Welcome <span style="color: blue;"><script>document.write(localStorage.getItem('user'));</script></span></button></a>
       </nav>
   {% block content %}
 
