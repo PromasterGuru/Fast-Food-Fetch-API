@@ -285,3 +285,12 @@ table{
   margin: 5px auto;
   display: block;
 }
+.msg{
+  color: #ff0000;
+  font-size: 18px;
+  font-style: italic;
+  text-align: left;
+  width: 90%;
+  margin: 0px auto;
+  display: block;
+}
