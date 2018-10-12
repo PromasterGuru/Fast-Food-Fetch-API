@@ -30,12 +30,51 @@ fetch(proxyUrl + url, {
           Status: <span>${result[i].status}</span>
           <br><br>
           <span>
-          <a href="/specific-order/${result[i].order_id}">Accept</a>&nbsp;&nbsp;&nbsp;
-          <a href="#">Decline</a>&nbsp;&nbsp;&nbsp;
-          <a href="#">Mark as Completed</a>
-        </p></span>
-        </p>
+          <button onclick=(updateOrder("${result[i].order_id}","Processing"))>Process</button>&nbsp;&nbsp;&nbsp;
+          <button onclick=(updateOrder("${result[i].order_id}","Cancelled"))>Cancel</button>&nbsp;&nbsp;&nbsp;
+          <button onclick=(updateOrder("${result[i].order_id}","Complete"))>Mark as Completed</button>
+          </span>
+          </p>
+          <span id="${result[i].order_id}" class="msg">Waiting</span>
       </div>`;
     }
   })
   .catch(error => console.log(error));
+
+/******************************************************/
+//UPdate the status of an order
+updateOrder = (id, order_status) => {
+    const access_token = localStorage.getItem("token");
+    var proxyUrl = 'https://morning-springs-84037.herokuapp.com/'
+    //Menu Url
+    const url = `https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/${id}`;
+    //data
+    let data = {
+      status: order_status
+    };
+
+    fetch(proxyUrl + url,{
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type" : "application/json",
+        Authorization : `Bearer ${access_token}`
+      }
+    })
+    .then(function(resp){
+      return resp.json()
+    })
+    .then(function(data){
+      let msg = data.Message
+      if (msg === "Order successfully updated"){
+        document.getElementById(id).innerHTML = msg;
+        window.location.href = "/orders";
+      }
+      else{
+        let msg = Object.values(data);
+        document.getElementById(id).innerHTML = msg;
+        setTimeout(() => {document.getElementById(id).innerHTML = "";}, 5000);
+      }
+    })
+    .catch(error => console.log(error));
+}
