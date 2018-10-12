@@ -15,10 +15,12 @@ fetch(proxyUrl + url)
       Meal Name: <span>${items[index].meal_name}</span><br><br>
       Description: <span>${items[index].description}</span><br><br>
       Unit Price: $<span>${items[index].unit_price}</span><br></br>
-      <span>
-      <a href="/specific-order/${items[index].meal_id}">Order Now</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#" id="_adm">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#" id="_adm">Delete</a><span>
+      <span id="btnord">
+      <button onclick=(window.location.href="/specific-order/${items[index].meal_id}")>Order Now</button>
+      </span>
+      <span id="_adm">
+      <button onclick=(window.location.href="/add_menu")>Add New</button>
+      </span>
       </p>
     </div>`;
   }

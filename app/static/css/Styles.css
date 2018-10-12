@@ -259,6 +259,7 @@ table{
   margin-bottom: 5px;
   background-color: #ffffff;
   margin: 0% auto;
+  height: auto;
 }
 #food_items p{
     color: #00131a;
@@ -272,8 +273,8 @@ table{
   color: blue;
   font-size: 18px;
 }
-._adm{
-  display: none;
+#_adm{
+  visibility:visible;
 }
 #error{
   color: #f442a7;
@@ -293,4 +294,8 @@ table{
   width: 90%;
   margin: 0px auto;
   display: block;
+}
+#btnord{
+  float: left;
+  margin-right: 1%;
 }

@@ -20,6 +20,10 @@ def signup():
 def menu():
     return render_template('menu.html',title ="View Menu")
 
+@app.route('/add_menu')
+def add_menu():
+    return render_template('addmenu.html',title ="Add Menu")
+
 @app.route('/order')
 def order():
     return render_template('order.html',title ="Place Order")
