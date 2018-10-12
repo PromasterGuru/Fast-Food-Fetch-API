@@ -1,6 +1,5 @@
 // Place order
 placeOrder = () => {
-
   let data = {
     meal_id: document.getElementById('meal_id').value,
     address: document.getElementById('address').value,
@@ -9,7 +8,6 @@ placeOrder = () => {
 
   //Orders Url
   let url = 'https://pro-fast-food-fast-api.herokuapp.com/api/v2/users/orders';
-  alert(role)
   if(role === 'Admin'){
     if(document.getElementById('order_id').value){
       id = document.getElementById('order_id').value;

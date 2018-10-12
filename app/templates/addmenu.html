@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+      <section>
+        <div id="admin-dashboard">
+          <div class="admin-dashboard">
+            <a href="{{url_for('menu')}}">
+              <div id="div_img"><img src="{{url_for('static', filename = 'img/item.jpg')}}" alt = "Item image"></div>
+              <div id="div_desc">
+              <h2>View Menu Options</h2>
+              </div>
+            </a>
+            <a href="{{url_for('orders')}}">
+              <div id="div_img"><img src="{{url_for('static', filename = 'img/order.jpeg')}}" alt = "Item image')}}"></div>
+                <div id="div_desc">
+                  <h2>View Order History</h2>
+                  <h4 id="orders_count"></h4>
+                </div>
+              </a>
+          </div>
+        </div>
+        <h2 style="text-align:center; color:#ffffff; margin:10px;">Add menu Option</h2>
+          <form onsubmit="event.preventDefault();">
+          <table>
+            <tr><td>Meal Name</td><td><input type="text" id="name" required></td></tr>
+            <tr><td>Description</td><td><input type="text" id="description" required></td></tr>
+            <tr><td>Price</td><td><input type="text" id="price" required></td></tr>
+            <tr><td colspan="2"><button id="submit" onclick="addMeal();">Submit</button></td></tr>
+            <tr><td colspan="2"><span id="error"></span>
+          </table>
+          </form>
+        <section>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/addMenu.js') }}"></script>
+{% endblock %}
