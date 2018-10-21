@@ -231,6 +231,7 @@ table{
   width: 15%;
   height: 120px;
   margin-left: 4%;
+  cursor: pointer;
   float: left;
 }
 #div_img img{
@@ -249,6 +250,10 @@ table{
   padding-top: 4%;
   margin-right: 5%;
   float: left;
+  color: blueviolet;
+}
+#div_desc:hover{
+  cursor: pointer;
 }
 #food_items{
   border-radius: 0.5em;
@@ -261,7 +266,7 @@ table{
   margin: 0% auto;
   height: auto;
 }
-#food_items p{
+#food_items{
     color: #00131a;
     font-family: serif;
     font-weight:normal;
@@ -274,7 +279,7 @@ table{
   font-size: 18px;
 }
 #_adm{
-  visibility:visible;
+  display: none;
 }
 #error{
   color: #f442a7;
@@ -288,14 +293,101 @@ table{
 }
 .msg{
   color: #ff0000;
-  font-size: 18px;
+  font-size: 1em;
   font-style: italic;
-  text-align: left;
+  text-align: center;
   width: 90%;
   margin: 0px auto;
   display: block;
 }
-#btnord{
+#btnord button{
+  margin: 1% auto;
+  width: 96%;
+}
+#item{
+  line-break: auto;
+  width: 25%;
+  padding: 4px;
+  background-color: #c5c4c4;
+  border-radius: 1em;
+  margin: 2% 3.3%;
+  text-align: left;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.3em;
   float: left;
-  margin-right: 1%;
+}
+#item img{
+  width:98%;
+  margin: 1% auto;
+  height: 150px;
+}
+hr{
+  width: 100%;
+}
+#orders_tb{
+  display: table;
+  table-layout: auto;
+  margin: 1% auto;
+  word-break: break-all;
+  border-collapse: collapse;
+  display: none;
+}
+#orders_tb td, #orders_tb th {
+  border: 1px solid rgb(218, 216, 216);
+  padding: 15px;
+}
+#orders_tb tr:nth-child(even){
+  background-color: #dbd7d7;
+}
+#orders_tb  th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: cadetblue;
+  font-size: 0.8em;
+}
+td button{
+  width: 42%;
+  margin: 1%;
+  font-size: 12px;
+  font-weight: bold;
+}
+th:last-child{
+  width: 30%;
+  background-color: #00a9ac;
+}
+th:nth-child(1){
+  width:6%;
+}
+th:nth-child(2){
+  width:7%;
+}
+#btn1{
+  color:#1e631c;
+}
+#btn2{
+  color: rgb(21, 26, 105)
+}
+#btn3{
+  color: rgb(167, 82, 82);
+}
+#btn4{
+  color: firebrick;
+}
+#add{
+  height: 30px;
+  width: 30px;
+  position: relative;
+}
+#div_desc button{
+  padding: 1%;
+  z-index: 5;
+  margin: 0% auto;
+  display: none;
+}
+#order_id, #quantity{
+  padding: 8px 0px;
+}
+.form_inputs{
+  width: 80%;
 }
