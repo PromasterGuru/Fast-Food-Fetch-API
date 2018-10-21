@@ -4,13 +4,14 @@
       <section>
         <div id="admin-dashboard">
           <div class="admin-dashboard">
-            <a href="{{url_for('menu')}}">
               <div id="div_img"><img src="{{url_for('static', filename = 'img/item.jpg')}}" alt = "Item image"></div>
               <div id="div_desc">
                 <h2>Menu Options</h2>
                 <h4 id="menu_count"></h4>
+                <button onclick='window.location.href = "/add_menu"'>
+                  <img src="{{url_for('static', filename = 'img/add.png')}}" alt = "Add item" id="add">
+                </button>
               </div>
-            </a>
             <a href="{{url_for('orders')}}">
               <div id="div_img"><img src="{{url_for('static', filename = 'img/order.jpeg')}}" alt = "Item image')}}"></div>
                 <div id="div_desc">
@@ -19,8 +20,9 @@
               </a>
           </div>
         </div>
-        <h2 style="text-align:center; color:#ffffff; margin:10px;">Menu Options</h2>
-        <div id="menu"></div>
+        <h2 style="text-align:center; color:#ffffff; margin:10px;">Menu Options
+        </h2>
+        <div id="food_items"></div>
         <section>
         <script type="text/javascript" src="{{ url_for('static', filename='js/viewMenu.js') }}"></script>
 {% endblock %}

@@ -4,6 +4,7 @@
 addMeal = (meal_id) => {
   let data = {
     name: document.getElementById('name').value,
+    image_url: document.getElementById('image').value,
     description: document.getElementById('description').value,
     unit_price: document.getElementById('price').value
   }

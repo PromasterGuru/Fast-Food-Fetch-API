@@ -19,7 +19,10 @@
           </div>
         </div>
         <h2 style="text-align:center; color:#ffffff; margin:10px;">Order History</h2>
-        <div id="orders"></div>
+        <div id="food_items">
+          <table id="orders_tb">
+          </table>
+        </div>
         <script type="text/javascript" src="{{ url_for('static', filename='js/viewOrders.js') }}"></script>
         <section>
 {% endblock %}
