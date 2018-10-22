@@ -10,5 +10,4 @@ install:
 - npm install
 script:
 - npm test
-# after_success: "npm run postcoverage && <coverage/lcov.info ./node_modules/coveralls/bin/coveralls.js"
 after_success:  npm run coveralls
