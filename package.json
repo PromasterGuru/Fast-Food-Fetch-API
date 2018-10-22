@@ -2,12 +2,13 @@
   "name": "unit",
   "version": "1.0.0",
   "description": "",
+  "author": "PromasterGuru",
+  "main": "add.js",
   "scripts": {
     "test": "jest",
     "watch": "jest --watch *test.js",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "coveralls": "^3.0.2",
