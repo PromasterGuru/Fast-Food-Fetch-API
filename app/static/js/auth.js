@@ -25,7 +25,7 @@ signUp = () => {
     if(msg === username + " registered successfully"){
       document.getElementById('error').innerHTML = msg;
       setTimeout(() => {document.getElementById("error").innerHTML = "";}, 4000);
-      window.location.href = "/login";
+      window.location.assign("/login");
     }
     else{
       document.getElementById('error').innerHTML = msg;
@@ -88,3 +88,5 @@ login = () => {
   .catch(error => console.log(error));
   const role = localStorage.getItem('role')
 }
+
+module.exports = signUp;
