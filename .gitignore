@@ -1,5 +1,7 @@
 __pycache__
 htmlcov
+node_modules
+coverage
 venv
 cover
 .env
@@ -8,3 +10,4 @@ cover
 *.py[cod]
 *$py.class
 .pytest_cache
+.vscode
