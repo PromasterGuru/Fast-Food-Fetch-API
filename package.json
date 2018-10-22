@@ -2,7 +2,6 @@
   "name": "unit",
   "version": "1.0.0",
   "description": "",
-  "main": "sum.js",
   "scripts": {
     "test": "jest",
     "watch": "jest --watch *test.js",
