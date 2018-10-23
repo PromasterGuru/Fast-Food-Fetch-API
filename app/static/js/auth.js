@@ -75,7 +75,8 @@ login = () => {
         const role = Object.values(data);
         localStorage.setItem('role', role)
         document.getElementById('error').innerHTML = msg;
-        window.location.href = "/menu";
+        setTimeout(() => {document.getElementById("error").innerHTML = "";}, 4000);
+        window.location.assign("/menu");
       })
       .catch(error => console.log(error));
     }
@@ -88,5 +89,3 @@ login = () => {
   .catch(error => console.log(error));
   const role = localStorage.getItem('role')
 }
-
-module.exports = signUp;
