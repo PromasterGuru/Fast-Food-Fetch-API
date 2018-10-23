@@ -1,4 +1,4 @@
-require('../static/js/auth')
+const signup = require('../static/js/auth')
 describe('singUp',()=>{
 let fetchMock;
 let assignMock;

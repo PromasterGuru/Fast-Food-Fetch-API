@@ -1,7 +1,7 @@
 require('../static/js/auth')
 describe('login',()=>{
-let fetchMock1;
-let assignMock1;
+let fetchMock;
+let assignMock;
 beforeEach(()=>{
     document.body.innerHTML += `
     <form  onsubmit="event.preventDefault();" id='login'>
@@ -40,9 +40,11 @@ it('Registered user login and assign to the menu page.', async() => {
             'Content-Type': 'application/json'
         }
     })
-    await Promise.resolve().then();  
-    expect(assignMock).toHaveBeenCalledTimes(1);
-    expect(assignMock.mock.calls[0][0]).toBe('/menu');
+    await Promise.resolve().then();
+    expect(localStorage.getItem('user')).toEqual("Promaster");
+    expect(localStorage.getItem('token')).not.toBeNull();
     expect(document.getElementById('error').innerHTML).toBe("Login successful, Welcome Promaster");
-  })
-})
+    await Promise.resolve().then();
+    expect(assignMock).toHaveBeenCalledTimes(1);
+    expect(assignMock.mock.calls[0][0]).toBe("/menu");
+})})
