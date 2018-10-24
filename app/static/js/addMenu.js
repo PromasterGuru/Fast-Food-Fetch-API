@@ -1,4 +1,6 @@
 
+var access_token = localStorage.getItem("token");
+var proxyUrl = 'https://morning-springs-84037.herokuapp.com/';
 /******************************************************/
 //Add a meal option to the menu
 addMeal = (meal_id) => {
