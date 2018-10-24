@@ -73,12 +73,13 @@ it('User login without password', async() => {
     expect(document.getElementById('error').innerHTML).toBe("User not verified, Please login again!");
 })
 })
-//Test user login without Password
+//Test user login with unregistered password or username
 it('User login without password', async() => {
     fetchMock = jest.spyOn(global, 'fetch')
     fetchMock.mockImplementation(()=>Promise.resolve({
-      json: ()=>Promise.resolve({Message: "User not verified, Please login again!"})}))
-    document.getElementById('password').value = "";
+      json: ()=>Promise.resolve({Message: "Username or password was incorrect!"})}))
+    document.getElementById('username').value = "Gedion";
+    document.getElementById('password').value = "Gedion2018";
     document.getElementById('btnsubmit').click();
     expect(fetchMock).toHaveBeenCalledTimes(1);
     const fetchArgs = fetchMock.mock.calls[0];
@@ -86,13 +87,13 @@ it('User login without password', async() => {
     expect(fetchArgs[1]).toEqual({
         method: 'POST',
         body: JSON.stringify({
-            username:'Promaster',
-            password: ""
+            username:'Gedion',
+            password: "Gedion2018"
         }),
         headers: {
             'Content-Type': 'application/json'
         }
     })
     await Promise.resolve().then();
-    expect(document.getElementById('error').innerHTML).toBe("User not verified, Please login again!");
+    expect(document.getElementById('error').innerHTML).toBe("Username or password was incorrect!");
 })

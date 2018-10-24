@@ -6,7 +6,7 @@
   "main": "sum.js",
   "scripts": {
     "test": "jest",
-    "watch": "jest --watch *.test.js",
+    "watch": "jest --watchAll *.test.js",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "license": "ISC",
