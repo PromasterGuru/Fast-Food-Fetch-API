@@ -73,3 +73,26 @@ it('User login without password', async() => {
     expect(document.getElementById('error').innerHTML).toBe("User not verified, Please login again!");
 })
 })
+//Test user login without Password
+it('User login without password', async() => {
+    fetchMock = jest.spyOn(global, 'fetch')
+    fetchMock.mockImplementation(()=>Promise.resolve({
+      json: ()=>Promise.resolve({Message: "User not verified, Please login again!"})}))
+    document.getElementById('password').value = "";
+    document.getElementById('btnsubmit').click();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    const fetchArgs = fetchMock.mock.calls[0];
+    expect(fetchArgs[0]).toBe("https://morning-springs-84037.herokuapp.com/https://pro-fast-food-fast-api.herokuapp.com/api/v2/auth/login");
+    expect(fetchArgs[1]).toEqual({
+        method: 'POST',
+        body: JSON.stringify({
+            username:'Promaster',
+            password: ""
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    await Promise.resolve().then();
+    expect(document.getElementById('error').innerHTML).toBe("User not verified, Please login again!");
+})
