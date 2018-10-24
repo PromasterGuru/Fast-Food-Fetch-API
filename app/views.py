@@ -1,7 +1,6 @@
 from flask import render_template
-from flask_cors import CORS
 from app import app
-
+from flask_cors import CORS
 CORS(app)
 
 @app.route('/')

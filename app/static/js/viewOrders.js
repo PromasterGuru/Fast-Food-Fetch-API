@@ -2,6 +2,7 @@
 let url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/users/orders";
 
 if(role === 'Admin'){
+  document.getElementById('frmsearch').style.display = "block";
   url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/";
 }
 fetch(proxyUrl + url, {
@@ -122,7 +123,6 @@ deleteOrder = (id) => {
   .then(function(data){
     let result = data.Message
     if (result === "Order successfully deleted"){
-      document.getElementById(id).innerHTML = result;
       window.location.href = "/orders";
     }
     else{
@@ -138,8 +138,8 @@ deleteOrder = (id) => {
 /*            GET SPECIFIC ORDER FUNCTION            */
 /****************************************************/ 
 getOrder = () => {
-  const id = document.getElementById('search').value;
-  const url = `https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/${id}`;
+  const order_id = document.getElementById('search').value;
+  const url = `https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/${order_id}`;
   fetch(proxyUrl + url,{
     method: "GET",
     headers: {
@@ -154,10 +154,10 @@ getOrder = () => {
     let result = data.Message;
     document.getElementById('orders_tb').style.display = "block";
     document.getElementById('orders_tb').innerHTML = "";
-    if(result === "No order found for order id "+id){
+    if(result === "No order found for order id "+order_id){
       document.getElementById('orders_count').innerHTML = 0;
       document.getElementById('orders_tb').innerHTML = `
-        <p><span id="error">No order history found for order id ${id}</span></p>`;
+        <p><span id="error">No order history found for order id ${order_id}</span></p>`;
     }
     else{
       document.getElementById('orders_count').innerHTML = result.length;

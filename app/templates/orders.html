@@ -19,9 +19,9 @@
           </div>
         </div>
         <h2 style="text-align:center; color:#ffffff; margin:10px;">Order History
-          <form onsubmit="event.preventDefault();">
-            <input type="search" placeholder="Filter order by ID" required  id="search" >
-            <button onclick="getOrder();">Search</button>
+          <form onsubmit="event.preventDefault(); getOrder();"  id="frmsearch">
+            <input type="search" placeholder="Filter order by ID" required id="search">
+            <input type="submit" value="Search" id="btnsubmit">
           </form>
         </h2>
         <div id="food_items">
