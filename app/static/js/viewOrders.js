@@ -1,3 +1,5 @@
+const access_token = localStorage.getItem("token");
+const proxyUrl = 'https://morning-springs-84037.herokuapp.com/';
 //Orders Url
 let url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/users/orders";
 
@@ -30,6 +32,7 @@ fetch(proxyUrl + url, {
       document.getElementById('orders_tb').innerHTML += `
       <tr id='tr'>
       <th>ID</th>
+      <th>Meal ID</th>
       <th>Qty</th>
       <th>Order Date</th>
       <th>Address</th>
@@ -44,6 +47,7 @@ fetch(proxyUrl + url, {
         <tr>
           <td>${result[i].order_id}</td>
           <td>${result[i].meal_id}</td>
+          <td>${result[i].quantity}</td>
           <td>${result[i].order_date}</td>
           <td>${result[i].address}</td>
           <td>${result[i].status}</td>
@@ -165,6 +169,7 @@ getOrder = () => {
       document.getElementById('orders_tb').innerHTML += `
       <tr id='tr'>
       <th>ID</th>
+      <th>Meal ID</th>
       <th>Qty</th>
       <th>Order Date</th>
       <th>Address</th>
@@ -176,6 +181,7 @@ getOrder = () => {
         <tr>
           <td>${result[i].order_id}</td>
           <td>${result[i].meal_id}</td>
+          <td>${result[i].quantity}</td>
           <td>${result[i].order_date}</td>
           <td>${result[i].address}</td>
           <td>${result[i].status}</td>
