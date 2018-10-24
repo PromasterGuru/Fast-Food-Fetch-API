@@ -18,6 +18,11 @@
   <div id="container">
       <nav>
           <p>Fast food Fast</p>
+          <script>
+            if(localStorage.getItem('user') === null){
+              window.location.href = "/";
+            }
+          </script>
           <a href="{{url_for('logout')}}"  onclick="localStorage.clear()">Logout</a>
           <a href=""><button>Welcome <span style="color: blue;"><script>document.write(localStorage.getItem('user'));</script></span></button></a>
       </nav>

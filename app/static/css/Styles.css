@@ -391,3 +391,6 @@ th:nth-child(2){
 .form_inputs{
   width: 80%;
 }
+#frmsearch{
+  display: none;
+}
