@@ -63,7 +63,8 @@ placeOrder = () => {
     return resp.json()
   }).then(function(data){
     let result = data.Message;
-    document.getElementById('error').innerHTML = result;
+    console.log(result)
+    document.getElementById('error').innerHTML = "Server error, please try again later!";
     setTimeout(() => {document.getElementById("error").innerHTML = "";}, 8000);
   })
   //catch any error that might occur when placing an order
