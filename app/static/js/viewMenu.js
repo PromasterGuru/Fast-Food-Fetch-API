@@ -22,7 +22,7 @@ fetch(proxyUrl + url)
     document.getElementById('food_items').innerHTML += `
       <div id="item">
       <img src="static/img/${items[index].image}"><br>
-      ${items[index].meal_name}
+      <span style="color:blue;">${items[index].meal_name}</span>
       <hr>
       ${items[index].description}<br>
       Ksh ${items[index].unit_price}<br>
