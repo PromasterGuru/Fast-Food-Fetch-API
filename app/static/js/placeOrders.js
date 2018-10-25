@@ -7,9 +7,8 @@ placeOrder = () => {
   let data = {
     meal_id: document.getElementById('meal_id').value,
     address: document.getElementById('address').value,
-    quantity: document.getElementById('quantity').value
+    quantity: document.getElementById('quantity').value,
   };
-
   //Orders Url
   let url = 'https://pro-fast-food-fast-api.herokuapp.com/api/v2/users/orders';
   fetch(proxyUrl + url, {

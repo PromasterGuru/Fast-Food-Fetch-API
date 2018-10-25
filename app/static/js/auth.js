@@ -74,7 +74,8 @@ login = () => {
       })
       .then(function(data){
         const role = Object.values(data);
-        localStorage.setItem('role', role)
+        localStorage.setItem('role', role[0]);
+        localStorage.setItem('user_id',role[1]);
         setTimeout(() => {document.getElementById("error").innerHTML = "";}, 4000);
         window.location.assign("/menu");
       })
