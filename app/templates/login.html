@@ -8,11 +8,11 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/Styles.css') }}">
 </head>
 <body>
-    <p id="acc-title">Login to your account</p>
-    <form onsubmit="event.preventDefault();" id='login'>
+    <form onsubmit="event.preventDefault();" id='login' class="acct-form">
+      <p id="acc-title">Login</p>
       <input type="text" placeholder="Enter your username" required class="input" id="username">
       <input type="password" placeholder="Enter your password" required class="input" id="password">
-      <button id="submit" onclick="login();">Login</button>
+      <button id="userlogin" onclick="login();">Login</button>
       <a href="{{url_for('signup')}}" id="register">SignUP</a>
       <span id="error"></span>
     </form>
