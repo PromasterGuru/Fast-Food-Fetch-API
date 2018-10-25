@@ -5,11 +5,10 @@ const proxyUrl = 'https://morning-springs-84037.herokuapp.com/';
 addMeal = (meal_id) => {
   let data = {
     name: document.getElementById('name').value,
-    image_url: document.getElementById('image').value.split("/"),
+    image_url: document.getElementById('image').value.replace(/^.*[\\\/]/, ''),
     description: document.getElementById('description').value,
     unit_price: document.getElementById('price').value
   }
-  alert(data.image_url);
   //Menu Url
   const url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/menu";
   fetch(proxyUrl + url,{
