@@ -24,8 +24,9 @@ fetch(proxyUrl + url)
       <img src="static/img/${items[index].image}"><br>
       <span style="color:blue;">${items[index].meal_name}</span>
       <hr>
-      ${items[index].description}<br>
-      Ksh ${items[index].unit_price}<br>
+      <span style="font-size: 0.8em;">
+      ${items[index].description}<span><br>
+      <span style="font-weight:bold;">Ksh ${items[index].unit_price}<span><br>
       <span id="btnord">
       <button onclick=(window.location.href="/specific-order/${items[index].meal_id}")>Order Now</button>
       </span>
