@@ -24,6 +24,9 @@ placeOrder = () => {
     return resp.json()
   }).then(function(data){
     let result = Object.values(data);
+    if(result === "Order item placed successfully"){
+      document.getElementById("error").style.color = "green";
+    }
     document.getElementById('error').innerHTML = result; 
     setTimeout(() => {document.getElementById("error").innerHTML = "";}, 8000);
   })

@@ -26,6 +26,7 @@ addMeal = (meal_id) => {
     let message = Object.values(data);
     if (message === "Menu item added successfully"){
       document.getElementById("error").innerHTML = message;
+      document.getElementById("error").style.color = "green";
       setTimeout(() => {document.getElementById('error').innerHTML = "";}, 4000);
     }
     else{
