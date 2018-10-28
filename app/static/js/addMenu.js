@@ -16,7 +16,7 @@ addMeal = (meal_id) => {
     body: JSON.stringify(data),
     headers: {
       "Content-Type" : "application/json",
-      Authorization : `Bearer ${access_token}`
+      "Authorization" : `Bearer ${access_token}`
     }
   })
   .then(function(resp){

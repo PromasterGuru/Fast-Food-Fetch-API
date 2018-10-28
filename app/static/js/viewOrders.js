@@ -11,7 +11,7 @@ fetch(proxyUrl + url, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${access_token}`
+      "Authorization": `Bearer ${access_token}`
     }
   })
   .then(function(response){
@@ -85,8 +85,8 @@ updateOrder = (id, order_status) => {
       method: "PUT",
       body: JSON.stringify(data),
       headers: {
-        "Content-Type" : "application/json",
-        Authorization : `Bearer ${access_token}`
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${access_token}`
       }
     })
     .then(function(resp){
@@ -119,8 +119,8 @@ deleteOrder = (id) => {
     fetch(proxyUrl + url,{
       method: "DELETE",
       headers: {
-        "Content-Type" : "application/json",
-        Authorization : `Bearer ${access_token}`
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${access_token}`
       }
     })
     .then(function(response){
@@ -154,7 +154,7 @@ deleteOrder = (id) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${access_token}`
+        "Authorization": `Bearer ${access_token}`
       }
     })
     .then(function(resp){
