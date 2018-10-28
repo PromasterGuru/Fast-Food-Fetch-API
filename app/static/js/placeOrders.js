@@ -24,10 +24,14 @@ placeOrder = () => {
     return resp.json()
   }).then(function(data){
     let result = Object.values(data);
-    if(result === "Order successfully placed"){
-      document.getElementById("error").style.color = "green";
+    if(data.Message === "Order successfully placed"){
+      document.getElementById("error").innerHTML = result; 
+      document.getElementById("error").style.color = "blue";
     }
-    document.getElementById("error").innerHTML = result; 
+    else{
+      document.getElementById("error").innerHTML = result;
+      document.getElementById("error").style.color = "red";
+    } 
     setTimeout(() => {document.getElementById("error").innerHTML = "";}, 8000);
   })
  /**catch any error that might occur when placing an order*/

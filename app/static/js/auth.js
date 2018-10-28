@@ -25,12 +25,13 @@ signUp = () => {
     let msg = data.Message;
     if(msg === username + " registered successfully"){
       document.getElementById("error").innerHTML = msg;
-      document.getElementById("error").style.color = "green";
+      document.getElementById("error").style.color = "blue";
       window.location.assign("/login");
       setTimeout(() => {document.getElementById("error").innerHTML = "";}, 4000);
     }
     else{
       document.getElementById("error").innerHTML = msg;
+      document.getElementById("error").style.color = "red";
       setTimeout(() => {document.getElementById("error").innerHTML = "";}, 5000);
     }
   })
@@ -64,7 +65,7 @@ login = () => {
       localStorage.setItem("token", access_token);
       localStorage.setItem("user", username);
       document.getElementById("error").innerHTML = msg;
-      document.getElementById("error").style.color = "green";
+      document.getElementById("error").style.color = "blue";
       const role_user = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/user/role";
       fetch(proxyUrl + role_user, {
         method: "GET",
@@ -87,6 +88,7 @@ login = () => {
     }
     else{
       document.getElementById("error").innerHTML = msg;
+      document.getElementById("error").style.color = "red";
       setTimeout(() => {document.getElementById("error").innerHTML = "";}, 5000);
     }
   })
