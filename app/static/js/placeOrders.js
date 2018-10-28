@@ -10,7 +10,7 @@ placeOrder = () => {
     address: document.getElementById("address").value,
     quantity: document.getElementById("quantity").value,
   };
-  
+
   /**Orders Url*/
   let url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/users/orders";
   fetch(proxyUrl + url, {
@@ -24,7 +24,7 @@ placeOrder = () => {
     return resp.json()
   }).then(function(data){
     let result = Object.values(data);
-    if(result === "Order item placed successfully"){
+    if(result === "Order successfully placed"){
       document.getElementById("error").style.color = "green";
     }
     document.getElementById("error").innerHTML = result; 
