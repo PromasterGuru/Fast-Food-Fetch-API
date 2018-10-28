@@ -1,5 +1,6 @@
 const access_token = localStorage.getItem("token");
 const proxyUrl = 'https://morning-springs-84037.herokuapp.com/';
+let orders;
 //Menu Url
 const url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/menu";
 fetch(proxyUrl + url)
@@ -8,6 +9,7 @@ fetch(proxyUrl + url)
 })
 .then(function(data){
   let items = data.Message
+  orders = items;
   document.getElementById('menu_count').innerHTML = items.length;
   if(role === null){
     let role = localStorage.getItem('role');
@@ -28,9 +30,14 @@ fetch(proxyUrl + url)
       ${items[index].description}<span><br>
       <span style="font-weight:bold;">Ksh ${items[index].unit_price}<span><br>
       <span id="btnord">
-      <button onclick=(window.location.href="/specific-order/${items[index].meal_id}")>Order Now</button>
+      <button onclick=(setItem(${items[index].meal_id}))>Order Now</button>
       </span>
       </div>`;
   }
 })
 .catch(error => console.log(error));
+
+setItem = (id) => {
+  localStorage.setItem('item', orders[id-1].meal_name);
+  window.location.href=`/specific-order/${id}`;
+}

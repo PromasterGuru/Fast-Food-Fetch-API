@@ -3,6 +3,8 @@ const proxyUrl = 'https://morning-springs-84037.herokuapp.com/';
 /********************************************* */
 /*            PLACE ORDER FUNCTION            */
 /*********************************************/ 
+item = localStorage.getItem('item');
+document.getElementById("meal_name").value = item;
 placeOrder = () => {
   let data = {
     meal_id: document.getElementById('meal_id').value,
