@@ -10,13 +10,14 @@ beforeEach(() => {
     fetchMock.mockImplementation(() => Promise.resolve({
       json: () => Promise.resolve({Message: "Sorry, we have no menu availlable for the moment."})}))
 })
-//Tear Down
+
+/**Tear Down*/
 afterEach(() => {
     fetchMock.mockRestore();
     jest.resetModules();
 })
 
-//Test user can view availlable menu options
+/**Test user can view availlable menu options*/
 it("Add menu option", async()  =>  {
     expect(fetchMock).toHaveBeenCalledTimes(1);
     const fetchArgs = fetchMock.mock.calls[0];

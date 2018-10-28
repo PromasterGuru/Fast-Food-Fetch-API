@@ -1,7 +1,7 @@
 const access_token = localStorage.getItem("token");
 const proxyUrl = "https://morning-springs-84037.herokuapp.com/";
-/******************************************************/
-//Add a meal option to the menu
+
+/**Add a meal option to the menu*/
 addMeal = (meal_id) => {
   let data = {
     name: document.getElementById("name").value,
@@ -9,7 +9,8 @@ addMeal = (meal_id) => {
     description: document.getElementById("description").value,
     unit_price: document.getElementById("price").value
   }
-  //Menu Url
+  
+/**Menu Url*/
   const url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/menu";
   fetch(proxyUrl + url,{
     method: "POST",

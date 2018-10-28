@@ -19,14 +19,15 @@ beforeEach(() => {
     assignMock = jest.spyOn(window.location, "assign")
     assignMock.mockImplementation(() => {})
 })
-//Tear Down
+
+/**Tear Down*/
 afterEach(()=>{
     fetchMock.mockRestore();
     assignMock.mockRestore();
     jest.resetModules();
 })
 
-//Test for valid user registration
+/**Test for valid user registration*/
 it("user can signup and be redirected to login page.", async() => {
     document.getElementById("submit").click();
     expect(fetchMock).toHaveBeenCalledTimes(1);
@@ -50,7 +51,7 @@ it("user can signup and be redirected to login page.", async() => {
     expect(document.getElementById("error").innerHTML).toBe("Dennis registered successfully");
 })
 
-//Test user regsiteration with invalid email address
+/**Test user regsiteration with invalid email address*/
 it("wrong email address", async() => {
     fetchMock = jest.spyOn(global, "fetch")
     fetchMock.mockImplementation(() => Promise.resolve({
@@ -65,7 +66,7 @@ it("wrong email address", async() => {
 })
 
 
-//Test user regsiteration for registered users
+/**Test user regsiteration for registered users*/
 it("duplicate account registration", async() => {
     fetchMock = jest.spyOn(global, "fetch")
     fetchMock.mockImplementation(() => Promise.resolve({
@@ -78,7 +79,7 @@ it("duplicate account registration", async() => {
     expect(document.getElementById("error").innerHTML).toBe("Account is already registered");
 })
 
-//Test user regsiteration with invalid username
+/**Test user regsiteration with invalid username*/
 it("Invalid username", async() => {
     fetchMock = jest.spyOn(global, "fetch")
     fetchMock.mockImplementation(() => Promise.resolve({
@@ -92,7 +93,7 @@ it("Invalid username", async() => {
     expect(document.getElementById("error").innerHTML).toBe("Username must contain atleast 6 characters!!");
 })
 
-//Test user regsiteration short password
+/**Test user regsiteration short password*/
 it("Weak password", async() => {
     fetchMock = jest.spyOn(global, "fetch")
     fetchMock.mockImplementation(()=>Promise.resolve({
@@ -106,7 +107,7 @@ it("Weak password", async() => {
     expect(document.getElementById("error").innerHTML).toBe("password must have more than 8 characters!!");
 })
 
-//Test user registration when password has no numeric characters
+/**Test user registration when password has no numeric characters*/
 it("Weak password", async() => {
     fetchMock = jest.spyOn(global, "fetch")
     fetchMock.mockImplementation(() => Promise.resolve({
@@ -120,7 +121,7 @@ it("Weak password", async() => {
     expect(document.getElementById("error").innerHTML).toBe("password must contain a at least one number!!");
 })
 
-//Test user registration when password has no uppercase characters
+/**Test user registration when password has no uppercase characters*/
 it("Weak password", async() => {
     fetchMock = jest.spyOn(global, "fetch")
     fetchMock.mockImplementation(() => Promise.resolve({
@@ -134,7 +135,7 @@ it("Weak password", async() => {
     expect(document.getElementById("error").innerHTML).toBe("password must contain a capital letter!!");
 })
 
-//Test user registration when password does not match
+/**Test user registration when password does not match*/
 it("Weak password", async() => {
     fetchMock = jest.spyOn(global, "fetch")
     fetchMock.mockImplementation(() => Promise.resolve({
@@ -148,7 +149,7 @@ it("Weak password", async() => {
     expect(document.getElementById("error").innerHTML).toBe("Your password does not match");
 })
 
-//Test user registration with bad request format
+/**Test user registration with bad request format*/
 it("some fields missing", async() => {
     document.body.innerHTML += `
     <form id="signup">

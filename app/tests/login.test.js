@@ -17,14 +17,15 @@ beforeEach(() => {
     assignMock = jest.spyOn(window.location, "assign")
     assignMock.mockImplementation(() => {})
 })
-//Tear Down
+
+/**Tear Down*/
 afterEach(() => {
     fetchMock.mockRestore();
     assignMock.mockRestore();
     jest.resetModules();
 })
 
-//Test for valid user login
+/**Test for valid user login*/
 it("Registered user login and assign to the menu page.", async() => {
     document.getElementById("btnsubmit").click();
     expect(fetchMock).toHaveBeenCalledTimes(1);
@@ -49,7 +50,7 @@ it("Registered user login and assign to the menu page.", async() => {
     expect(assignMock.mock.calls[0][0]).toBe("/menu");
 })
 
-//Test user login without Password
+/**Test user login without Password*/
 it("User login without password", async() => {
     fetchMock = jest.spyOn(global, "fetch")
     fetchMock.mockImplementation(() => Promise.resolve({
@@ -73,7 +74,8 @@ it("User login without password", async() => {
     expect(document.getElementById("error").innerHTML).toBe("User not verified, Please login again!");
 })
 })
-//Test user login with unregistered password or username
+
+/**Test user login with unregistered password or username*/
 it("User login without password", async() => {
     fetchMock = jest.spyOn(global, "fetch")
     fetchMock.mockImplementation(() => Promise.resolve({

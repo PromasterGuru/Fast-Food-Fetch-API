@@ -1,6 +1,6 @@
 var proxyUrl = "https://morning-springs-84037.herokuapp.com/";
 
-//Register a new user
+/**Register a new user*/
 signUp = () => {
 
   let data = {
@@ -11,7 +11,8 @@ signUp = () => {
   };
   username = data.username;
   const url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/auth/signup";
-  // submit registration data data to the server
+
+/** submit registration data data to the server*/
   fetch(proxyUrl  + url, {
     method: "POST",
     body: JSON.stringify(data),
@@ -33,20 +34,21 @@ signUp = () => {
       setTimeout(() => {document.getElementById("error").innerHTML = "";}, 5000);
     }
   })
-  //catch any error that might occur during registration
+  /**catch any error that might occur during registration*/
   .catch(error => console.log(error));
 }
 
-//User login
+/**User login*/
 login = () => {
 
   let data = {
     username: document.getElementById("username").value,
     password: document.getElementById("password").value
   };
-  username = data.username
+  username = data.username;
   const url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/auth/login";
-  // submit login data data to the server
+
+ /**submit login data data to the server*/
   fetch(proxyUrl  + url, {
     method: "POST",
     body: JSON.stringify(data),
@@ -88,7 +90,7 @@ login = () => {
       setTimeout(() => {document.getElementById("error").innerHTML = "";}, 5000);
     }
   })
-  //catch any error that might occur during login
+ /**catch any error that might occur during login*/
   .catch(error => console.log(error));
   const role = localStorage.getItem("role")
 }

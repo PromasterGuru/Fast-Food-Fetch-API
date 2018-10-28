@@ -1,8 +1,7 @@
 const access_token = localStorage.getItem("token");
 const proxyUrl = "https://morning-springs-84037.herokuapp.com/";
-/********************************************* */
-/*            PLACE ORDER FUNCTION            */
-/*********************************************/ 
+
+/**PLACE ORDER FUNCTION */
 item = localStorage.getItem("item");
 document.getElementById("meal_name").value = item;
 placeOrder = () => {
@@ -11,7 +10,8 @@ placeOrder = () => {
     address: document.getElementById("address").value,
     quantity: document.getElementById("quantity").value,
   };
-  //Orders Url
+  
+  /**Orders Url*/
   let url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/users/orders";
   fetch(proxyUrl + url, {
     method: "POST",
@@ -30,6 +30,6 @@ placeOrder = () => {
     document.getElementById("error").innerHTML = result; 
     setTimeout(() => {document.getElementById("error").innerHTML = "";}, 8000);
   })
-  //catch any error that might occur when placing an order
+ /**catch any error that might occur when placing an order*/
   .catch(error => console.log(error));
 }

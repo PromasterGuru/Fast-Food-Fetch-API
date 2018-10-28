@@ -15,13 +15,14 @@ beforeEach(() => {
     fetchMock.mockImplementation(() => Promise.resolve({
       json: () => Promise.resolve({Message: "Menu item added successfully"})}))
 })
-//Tear Down
+
+/**Tear Down*/
 afterEach(() => {
     fetchMock.mockRestore();
     jest.resetModules();
 })
 
-//Test user can add menu options
+/**Test user can add menu options*/
 it("Add menu option", async() => {
     document.getElementById("btnadd").click();
     expect(fetchMock).toHaveBeenCalledTimes(1);

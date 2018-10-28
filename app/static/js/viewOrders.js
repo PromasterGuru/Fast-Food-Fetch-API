@@ -1,6 +1,7 @@
 const access_token = localStorage.getItem("token");
 const proxyUrl = "https://morning-springs-84037.herokuapp.com/";
-//Orders Url
+
+/**Orders Url*/
 let url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/users/orders";
 
 if(role === "Admin"){
@@ -19,7 +20,8 @@ fetch(proxyUrl + url, {
   })
   .then(function(data){
     let result = data.Message
-    // When no order is found
+
+    /** When no order is found*/
     if(result === "No order history found."){
       document.getElementById("orders_count").innerHTML = 0;
       document.getElementById("food_items").innerHTML += `
@@ -28,7 +30,8 @@ fetch(proxyUrl + url, {
     else{
       document.getElementById("orders_count").innerHTML = result.length;
       document.getElementById("orders_tb").style.display = "block";
-      // Loop through each order and display it on the screen
+
+      /**Loop through each order and display it on the screen*/
       document.getElementById("orders_tb").innerHTML += `
       <tr id="tr">
       <th>ID</th>
@@ -69,14 +72,13 @@ fetch(proxyUrl + url, {
   })
   .catch(error => console.log(error));
   
-
-/******************************************************/
-//UPdate the status of an order
+/**UPdate the status of an order*/
 updateOrder = (id, order_status) => {
 
-    //Menu Url
+    /**Menu Url*/
     const url = `https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/${id}`;
-    //data
+    
+    /**order status*/
     let data = {
       status: order_status
     };
@@ -95,24 +97,25 @@ updateOrder = (id, order_status) => {
     .then(function(data){
       let msg = data.Message;
       if (msg === "Order successfully updated"){
-        // document.getElementById(id).innerHTML = msg;
+        /**document.getElementById(id).innerHTML = msg;*/
         window.location.href = "/orders";
       }
       else{
         let msg = Object.values(data);
         console.log(msg);
-        // document.getElementById(id).innerHTML = msg;
-        // setTimeout(() => {document.getElementById(id).innerHTML = "";}, 5000);
+        /**
+         * document.getElementById(id).innerHTML = msg;
+         * setTimeout(() => {document.getElementById(id).innerHTML = "";}, 5000);
+        */
       }
     })
     .catch(error => console.log(error));
 }
 
-/******************************************************/
-//Delete an order
+/**Delete an order*/
 deleteOrder = (id) => {
 
-  //Order Url
+  /**Order Url*/
   var c = confirm("Do you really want to delete this order?");
   if(c == true){
     const url = `https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/${id}`;
@@ -144,9 +147,7 @@ deleteOrder = (id) => {
   }
   }
 
-  /**************************************************** */
-  /*            GET SPECIFIC ORDER FUNCTION            */
-  /****************************************************/ 
+  /** GET SPECIFIC ORDER FUNCTION*/
   getOrder = () => {
     const order_id = document.getElementById("search").value;
     const url = `https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/${order_id}`;
@@ -171,7 +172,7 @@ deleteOrder = (id) => {
       }
       else{
         document.getElementById("orders_count").innerHTML = result.length;
-        // Loop through each order and display it on the screen
+        /**Loop through each order and display it on the screen*/
         document.getElementById("orders_tb").innerHTML += `
         <tr id="tr">
         <th>ID</th>
