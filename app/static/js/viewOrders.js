@@ -1,10 +1,10 @@
 const access_token = localStorage.getItem("token");
-const proxyUrl = 'https://morning-springs-84037.herokuapp.com/';
+const proxyUrl = "https://morning-springs-84037.herokuapp.com/";
 //Orders Url
 let url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/users/orders";
 
-if(role === 'Admin'){
-  document.getElementById('frmsearch').style.display = "block";
+if(role === "Admin"){
+  document.getElementById("frmsearch").style.display = "block";
   url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/";
 }
 fetch(proxyUrl + url, {
@@ -21,29 +21,29 @@ fetch(proxyUrl + url, {
     let result = data.Message
     // When no order is found
     if(result === "No order history found."){
-      document.getElementById('orders_count').innerHTML = 0;
-      document.getElementById('food_items').innerHTML += `
+      document.getElementById("orders_count").innerHTML = 0;
+      document.getElementById("food_items").innerHTML += `
         <p><span id="error">You have no order history, place a new order!</span></p>`;
     }
     else{
-      document.getElementById('orders_count').innerHTML = result.length;
-      document.getElementById('orders_tb').style.display = "block";
+      document.getElementById("orders_count").innerHTML = result.length;
+      document.getElementById("orders_tb").style.display = "block";
       // Loop through each order and display it on the screen
-      document.getElementById('orders_tb').innerHTML += `
-      <tr id='tr'>
+      document.getElementById("orders_tb").innerHTML += `
+      <tr id="tr">
       <th>ID</th>
       <th>Meal ID</th>
       <th>Qty</th>
       <th>Order Date</th>
       <th>Address</th>
       <th>Status</th>`
-      if(role === 'Admin'){
-        document.getElementById('tr').innerHTML += `
+      if(role === "Admin"){
+        document.getElementById("tr").innerHTML += `
         <th>Action</th>`
       }
       `</tr>`
       for(i = 0; i < result.length; i++){
-        document.getElementById('orders_tb').innerHTML += `
+        document.getElementById("orders_tb").innerHTML += `
         <tr>
           <td>${result[i].order_id}</td>
           <td>${result[i].meal_id}</td>
@@ -51,7 +51,7 @@ fetch(proxyUrl + url, {
           <td>${result[i].order_date}</td>
           <td>${result[i].address}</td>
           <td>${result[i].status}</td>
-          <td id ='_adm'>
+          <td id ="_adm">
           <button onclick=(updateOrder("${result[i].order_id}","Processing")) id="btn1">Process</button>
           <button onclick=(updateOrder("${result[i].order_id}","Complete")) id="btn2">Complete</button>
           <button onclick=(updateOrder("${result[i].order_id}","Cancelled")) id="btn3">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -59,8 +59,8 @@ fetch(proxyUrl + url, {
         </td>
         </tr>`
       }
-      if(role === 'Admin'){
-        let x = document.getElementById("orders_tb").querySelectorAll('#_adm');
+      if(role === "Admin"){
+        let x = document.getElementById("orders_tb").querySelectorAll("#_adm");
         for(var i =0; i<x.length; i++){
           x[i].style.display = "block";
         }
@@ -93,7 +93,7 @@ updateOrder = (id, order_status) => {
       return resp.json()
     })
     .then(function(data){
-      let msg = data.Message
+      let msg = data.Message;
       if (msg === "Order successfully updated"){
         // document.getElementById(id).innerHTML = msg;
         window.location.href = "/orders";
@@ -148,7 +148,7 @@ deleteOrder = (id) => {
   /*            GET SPECIFIC ORDER FUNCTION            */
   /****************************************************/ 
   getOrder = () => {
-    const order_id = document.getElementById('search').value;
+    const order_id = document.getElementById("search").value;
     const url = `https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/${order_id}`;
     fetch(proxyUrl + url,{
       method: "GET",
@@ -162,18 +162,18 @@ deleteOrder = (id) => {
     })
     .then(function(data){
       let result = data.Message;
-      document.getElementById('orders_tb').style.display = "block";
-      document.getElementById('orders_tb').innerHTML = "";
+      document.getElementById("orders_tb").style.display = "block";
+      document.getElementById("orders_tb").innerHTML = "";
       if(result === "No order found for order id "+order_id){
-        document.getElementById('orders_count').innerHTML = 0;
-        document.getElementById('orders_tb').innerHTML = `
+        document.getElementById("orders_count").innerHTML = 0;
+        document.getElementById("orders_tb").innerHTML = `
           <p><span id="error">No order history found for order id ${order_id}</span></p>`;
       }
       else{
-        document.getElementById('orders_count').innerHTML = result.length;
+        document.getElementById("orders_count").innerHTML = result.length;
         // Loop through each order and display it on the screen
-        document.getElementById('orders_tb').innerHTML += `
-        <tr id='tr'>
+        document.getElementById("orders_tb").innerHTML += `
+        <tr id="tr">
         <th>ID</th>
         <th>Meal ID</th>
         <th>Qty</th>
@@ -183,7 +183,7 @@ deleteOrder = (id) => {
         <th>Action</th>
         </tr>`
         for(i = 0; i < result.length; i++){
-          document.getElementById('orders_tb').innerHTML += `
+          document.getElementById("orders_tb").innerHTML += `
           <tr>
             <td>${result[i].order_id}</td>
             <td>${result[i].meal_id}</td>

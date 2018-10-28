@@ -1,4 +1,4 @@
-var proxyUrl = 'https://morning-springs-84037.herokuapp.com/'
+var proxyUrl = "https://morning-springs-84037.herokuapp.com/";
 
 //Register a new user
 signUp = () => {
@@ -9,11 +9,11 @@ signUp = () => {
     password: document.getElementById("pass").value,
     cpassword: document.getElementById("cpass").value
   };
-  username = data.username
-  const url = 'https://pro-fast-food-fast-api.herokuapp.com/api/v2/auth/signup';
+  username = data.username;
+  const url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/auth/signup";
   // submit registration data data to the server
   fetch(proxyUrl  + url, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json"
@@ -23,13 +23,13 @@ signUp = () => {
   }).then(function(data){
     let msg = data.Message;
     if(msg === username + " registered successfully"){
-      document.getElementById('error').innerHTML = msg;
+      document.getElementById("error").innerHTML = msg;
       document.getElementById("error").style.color = "green";
       window.location.assign("/login");
       setTimeout(() => {document.getElementById("error").innerHTML = "";}, 4000);
     }
     else{
-      document.getElementById('error').innerHTML = msg;
+      document.getElementById("error").innerHTML = msg;
       setTimeout(() => {document.getElementById("error").innerHTML = "";}, 5000);
     }
   })
@@ -45,10 +45,10 @@ login = () => {
     password: document.getElementById("password").value
   };
   username = data.username
-  const url = 'https://pro-fast-food-fast-api.herokuapp.com/api/v2/auth/login';
+  const url = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/auth/login";
   // submit login data data to the server
   fetch(proxyUrl  + url, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json"
@@ -59,11 +59,11 @@ login = () => {
     let msg = data.Message;
     if(msg === "Login successful, Welcome " + username){
       access_token = data.access_token
-      localStorage.setItem('token', access_token);
-      localStorage.setItem('user', username);
-      document.getElementById('error').innerHTML = msg;
+      localStorage.setItem("token", access_token);
+      localStorage.setItem("user", username);
+      document.getElementById("error").innerHTML = msg;
       document.getElementById("error").style.color = "green";
-      const role_user = 'https://pro-fast-food-fast-api.herokuapp.com/api/v2/user/role';
+      const role_user = "https://pro-fast-food-fast-api.herokuapp.com/api/v2/user/role";
       fetch(proxyUrl + role_user, {
         method: "GET",
         headers: {
@@ -76,19 +76,19 @@ login = () => {
       })
       .then(function(data){
         const role = Object.values(data);
-        localStorage.setItem('role', role[0]);
-        localStorage.setItem('user_id',role[1]);
+        localStorage.setItem("role", role[0]);
+        localStorage.setItem("user_id",role[1]);
         setTimeout(() => {document.getElementById("error").innerHTML = "";}, 4000);
         window.location.assign("/menu");
       })
       .catch(error => console.log(error));
     }
     else{
-      document.getElementById('error').innerHTML = msg;
+      document.getElementById("error").innerHTML = msg;
       setTimeout(() => {document.getElementById("error").innerHTML = "";}, 5000);
     }
   })
   //catch any error that might occur during login
   .catch(error => console.log(error));
-  const role = localStorage.getItem('role')
+  const role = localStorage.getItem("role")
 }
