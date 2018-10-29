@@ -12,14 +12,17 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/Styles.css') }}">
 </head>
 <body>
-    <form onsubmit="event.preventDefault();" id='signup'  class="acct-form">
-        <p id="acc-title">SignUP</p>
-        <input type="text" placeholder="Enter your username" required class="input" id="uname">
-        <input type="email" placeholder="Enter your email " required class="input" id="email">
-        <input type="password" placeholder="Enter your password" required class="input" id="pass">
-        <input type="password" placeholder="Confirm your password" required class="input" id="cpass">
-        <button id="userlogin" onclick="signUp()">SignUP</button>
-        <span id="error"></span>
+        <div id="imgLogo">
+            <p>Fast food Fast</p>
+        </div>
+        <form onsubmit="event.preventDefault();" id='signup'  class="acct-form">
+            <p id="acc-title">SignUP</p>
+            <input type="text" placeholder="Enter your username" required class="input" id="uname">
+            <input type="email" placeholder="Enter your email " required class="input" id="email">
+            <input type="password" placeholder="Enter your password" required class="input" id="pass">
+            <input type="password" placeholder="Confirm your password" required class="input" id="cpass">
+            <button id="userlogin" onclick="signUp()">SignUP</button>
+            <span id="error"></span>
     </form>
 </body>
 <script type="text/javascript" src="{{ url_for('static', filename='js/auth.js') }}"></script>
