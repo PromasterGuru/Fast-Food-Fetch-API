@@ -71,13 +71,13 @@ fetch(proxyUrl + url, {
     }
   })
   .catch(error => console.log(error));
-  
+
 /**UPdate the status of an order*/
 updateOrder = (id, order_status) => {
 
     /**Menu Url*/
     const url = `https://pro-fast-food-fast-api.herokuapp.com/api/v2/orders/${id}`;
-    
+
     /**order status*/
     let data = {
       status: order_status

@@ -288,14 +288,12 @@ table{
   background-color: #ffffff;
   margin: 0% auto;
   height: auto;
-}
-#food_items{
-    color: #00131a;
-    font-family: serif;
-    font-weight:normal;
-    font-size: 14px;
-    width: 90%;
-    text-align: justify;
+  color: #00131a;
+  font-family: serif;
+  font-weight:normal;
+  font-size: 0.8em;
+  width: 90%;
+  text-align: justify;
 }
 #food_items p span{
   color: blue;
@@ -431,13 +429,27 @@ th:nth-child(5){
   display: none;
 }
 #pagination{
-  margin-left: 50%;
   /* background-color: #00acc6; */
-  width: 50%;
-  float: left;
+  width: 90%;
+  text-align: center;
+  margin-bottom: 2%;
+  margin: 0px auto;
 }
 #pagination button{
-  float: right;
+  float: left;
   padding: 1% 2%;
-  margin: 1%;
+  border-radius: 8em;
+}
+#pagination button:hover{
+  background-color: cadetblue;
+  transition: 1s;
+}
+#foods{
+  width: 100%;
+  height: auto;
+  float: left;
+}
+#foods button{
+  padding: 8px 0px;
+  font-size: 1em;
 }

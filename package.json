@@ -19,6 +19,7 @@
     "jest-fetch-mock": "^1.6.5"
   },
   "dependencies": {
+    "live-server": "^1.2.0",
     "node-fetch": "^2.2.0",
     "npm": "^6.4.1",
     "watchman": "^1.0.0"

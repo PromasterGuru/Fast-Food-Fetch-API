@@ -1,28 +1,31 @@
-
 {% extends "base.html" %}
 {% block content %}
-      <section>
-        <div id="admin-dashboard">
-          <div class="admin-dashboard">
-              <div id="div_img"><img src="{{url_for('static', filename = 'img/item.jpg')}}" alt = "Item image"></div>
-              <div id="div_desc">
-                <h2>Menu Options</h2>
-                <h4 id="menu_count"></h4>
-                <button onclick='window.location.href = "/add_menu"'>
-                  <img src="{{url_for('static', filename = 'img/add.png')}}" alt = "Add item" id="add">
-                </button>
-              </div>
-            <a href="{{url_for('orders')}}">
-              <div id="div_img"><img src="{{url_for('static', filename = 'img/order.jpeg')}}" alt = "Item image')}}"></div>
-                <div id="div_desc">
-                  <h2>View Orders</h2>
-                </div>
-              </a>
-          </div>
+<section>
+  <div id="admin-dashboard">
+    <div class="admin-dashboard">
+      <div id="div_img"><img src="{{url_for('static', filename = 'img/item.jpg')}}" alt="Item image"></div>
+      <div id="div_desc">
+        <h2>Menu Options</h2>
+        <h4 id="menu_count"></h4>
+        <button onclick='window.location.href = "/add_menu"'>
+          <img src="{{url_for('static', filename = 'img/add.png')}}" alt="Add item" id="add">
+        </button>
+      </div>
+      <a href="{{url_for('orders')}}">
+        <div id="div_img"><img src="{{url_for('static', filename = 'img/order.jpeg')}}" alt="Item image')}}"></div>
+        <div id="div_desc">
+          <h2>View Orders</h2>
         </div>
-        <h2 style="text-align:center; color:#ffffff; margin:10px;">Menu Options
-        </h2>
-        <div id="food_items"></div>
-        <section>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/viewMenu.js')}}"></script>
-{% endblock %}
+      </a>
+    </div>
+  </div>
+  <h2 style="text-align:center; color:#ffffff; margin:10px;">Menu Options
+  </h2>
+  <div id="food_items">
+    <div id="foods"></div>¸
+    <div id="pagination"></div>
+  </div>
+  </div>
+  <section>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/viewMenu.js')}}"></script>
+    {% endblock %}

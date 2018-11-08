@@ -21,28 +21,7 @@ fetch(proxyUrl + url)
       b[i].style.display = "block";
   }
 }
-  for(index = 0; index < items.length; index++){
-    document.getElementById("food_items").innerHTML += `
-      <div id="item">
-      <img src="static/img/${items[index].image}"><br>
-      <span style="color:blue;">${items[index].meal_name}</span>
-      <hr>
-      <span style="font-size: 0.8em;">
-      ${items[index].description}<span><br>
-      <span style="font-weight:bold;">Ksh ${items[index].unit_price}<span><br>
-      <span id="btnord">
-      <button onclick=(setItem(${items[index].meal_id}))>Order Now</button>
-      </span>
-      </div>`;
-  }
-  document.getElementById("food_items").innerHTML += `
-  <span id="pagination">
-  <button onclick="getNext();">Next</button>
-  <button onclick="getPrevious();">Previous</button>
-  <button onclick="getLast();">Last</button>
-  <button onclick="getFirst();">First</button>
-  <span>
-  `
+getPage(1);
 })
 .catch(error => console.log(error));
 
@@ -53,60 +32,33 @@ setItem = (id) => {
 }
 
 /**Pure JavaScript page pagination*/
-let curPage = 1;
-let lastPage = orders.length;
-let nextPage = curPage + 1;
-let firstPage = 0;
-let prevPage = curPage -1;
-
-/**Get page */
-getPage = (page) => {
-  let result;
-  if(page === "previous"){
-    result = previousPage;
+getPage = (numPages) => {
+  maxCount = numPages * 6;
+  minCount = maxCount - 6;
+  document.getElementById("foods").innerHTML = "";
+  document.getElementById("pagination").innerHTML = "";
+  getNavButtons();
+  for(index = minCount; index < maxCount; index++){
+    document.getElementById("foods").innerHTML += `
+      <div id="item">
+      <img src="static/img/${orders[index].image}"><br>
+      <span style="color:blue;">${orders[index].meal_name}</span>
+      <hr>
+      <span style="font-size: 0.8em;">
+      ${orders[index].description}<span><br>
+      <span style="font-weight:bold;">Ksh ${orders[index].unit_price}<span><br>
+      <span id="btnord">
+      <button onclick=(setItem(${orders[index].meal_id}))>Order Now</button>
+      </span>
+      </div>`;
   }
-  else if(page = "next"){
-    result = nextPage;
-  }
-  else if(page = "first"){
-    result = firstPage;
-  }
-  else{
-    result = lastPage;
-  }
-  return result;
 }
-
-/**Get previous page*/
-getPrevious = () => {
-  if(count > 0){
-    getPage("previous");
+getNavButtons = () =>{
+  if(orders.length/6 > 1){
+    for(let i = 0; i <= orders.length/6; i++){
+      let n = parseInt(i) + 1;
+      document.getElementById("pagination").innerHTML += `
+        <button onclick="getPage(${n});">${n}</button>`
+      }
+    }
   }
-  alert(getPage("previous"));
-}
-
-/**Get next page*/
-getNext = () => {
-  if(count < lastPage){
-    getPage("next");
-  }
-  alert(getPage("next"));
-}
-
-/**Get first page*/
-getFirst = () => {
-  if(count > 0){
-    getPage("first");
-  }
-  alert(getPage("first"));
-}
-
-/**Get last page*/
-getLast = () => {
-  if(count < lastPage){
-    getPage("last");
-  }
-  alert(getPage("last"));
-}
-
-
