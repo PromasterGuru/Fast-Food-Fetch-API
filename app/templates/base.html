@@ -24,7 +24,7 @@
             }
           </script>
           <a href="{{url_for('logout')}}"  onclick="localStorage.clear()">Logout</a>
-          <a href=""><button>Welcome <span style="color: blue;"><script>document.write(localStorage.getItem("user"));</script></span></button></a>
+          <a href=""><button style="padding: 5px 0px;">Welcome <span style="color: blue;"><script>document.write(localStorage.getItem("user"));</script></span></button></a>
       </nav>
   {% block content %}
 

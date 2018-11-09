@@ -127,7 +127,7 @@ form{
 }
 #submit, #userlogin{
   padding: 0.4em;
-  width: 84%;
+  width: 82%;
   background-color: #599fb1;
   border-radius: 0.5em;
   font-size: 1em;
@@ -422,9 +422,6 @@ th:nth-child(5){
 #order_id, #quantity{
   padding: 8px 0px;
 }
-.form_inputs{
-  width: 80%;
-}
 #frmsearch{
   display: none;
 }
@@ -452,4 +449,20 @@ th:nth-child(5){
 #foods button{
   padding: 8px 0px;
   font-size: 1em;
+}
+#nav button{
+  padding: 5px 0px;
+}
+td input{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 1em;
+  width: 80%;
+}
+#search, #btnsubmit{
+  padding: 5px;
+}
+#orders_tb button{
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
